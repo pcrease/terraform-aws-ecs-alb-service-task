@@ -313,3 +313,9 @@ variable "use_old_arn" {
   description = "A flag to enable/disable tagging the ecs resources that require the new arn format"
   default     = false
 }
+
+variable "ecs_force_deployment" {
+  type        = bool
+  description = "A flag to force deploment of new container in ecr in a fargate service"
+  default     = false
+}

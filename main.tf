@@ -379,6 +379,7 @@ resource "aws_ecs_service" "default" {
   scheduling_strategy                = var.launch_type == "FARGATE" ? "REPLICA" : var.scheduling_strategy
   enable_ecs_managed_tags            = var.enable_ecs_managed_tags
   iam_role                           = local.enable_ecs_service_role ? join("", aws_iam_role.ecs_service.*.arn) : null
+  ecs_force_deployment               = var.ecs_force_deployment
 
   dynamic "capacity_provider_strategy" {
     for_each = var.capacity_provider_strategies
